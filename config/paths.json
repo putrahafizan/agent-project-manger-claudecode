@@ -1,4 +1,7 @@
 {
-  "excel_error_report": "C:/Users/teamd/report_error_wa/WhatsApp_Error_Report.xlsx",
-  "excel_action_plan": "C:/Users/teamd/report_error_wa/WhatsApp_Technical_ActionPlan.xlsx"
+  "version": "1.0",
+  "last_updated": "2026-04-08",
+  "note": "ISI PATH DI BAWAH INI SESUAI LOKASI FILE DI KOMPUTER KAMU",
+  "excel_error_report": "ISI_PATH_DISINI/WhatsApp_Error_Report.xlsx",
+  "excel_action_plan": "ISI_PATH_DISINI/WhatsApp_Technical_ActionPlan.xlsx"
 }

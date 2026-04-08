@@ -13,3 +13,9 @@ __pycache__/
 
 # Excel temp files
 ~$*.xlsx
+
+# BRIEF HISTORY — Data pribadi PM, tidak di-push
+data/brief-history.json
+
+# Personal paths (isi dengan path lokal masing-masing)
+# config/paths.json — edit manual sesuai lokasi file
