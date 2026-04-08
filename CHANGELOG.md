@@ -1,8 +1,37 @@
 # CHANGELOG — PM Brief Agent
 
-All notable changes to this project will be documented in this file.
+---
 
-Format berdasarkan [Keep a Changelog](https://keepachangelog.com/).
+## [1.1.0] — 2026-04-08
+
+### Added
+
+**EXTRACTOR Sub-Agent:**
+- `.claude/agents/extractor.md` — Parse ZIP export chat WhatsApp
+- Identifikasi topics dari chat (Error / Fitur Baru / Pengembangan Fitur)
+- Group pesan berdasarkan topik
+- Comparison dengan brief history otomatis
+
+**WhatsApp ZIP Input Support:**
+- Orchestrator updated: deteksi 3 jenis input (teks / Excel / ZIP)
+- Brief format: tambah section "Temuan dari WhatsApp Chat"
+- Brief format: tambah section "Comparison dengan Temuan Sebelumnya"
+- EXTRACTOR berjalan sebelum CLASSIFIER jika input ZIP
+
+### Changed
+
+**Orchestrator (pm-brief-agent.md):**
+- Update alur kerja dari 8 ke 9 langkah
+- LANGKAH 1: Pilihan jenis input (teks / Excel / ZIP)
+- LANGKAH 2B: EXTRACTOR untuk ZIP input
+- CHECKPOINT 2B: Pilih topik untuk brief (jika multiple topics)
+- LANGKAH 6: Writer tambah section untuk WhatsApp input
+
+**README.md:**
+- Tambah section "Jenis Input yang Didukung"
+- Update alur kerja diagram
+- Tambah "WhatsApp Chat Export (ZIP)" section
+- Update list sub-agents
 
 ---
 
@@ -11,69 +40,22 @@ Format berdasarkan [Keep a Changelog](https://keepachangelog.com/).
 ### Added
 
 **Agent System:**
-- `pm-brief-agent.md` — Orchestrator (agent utama, trigger `/pm-brief`)
-- `classifier.md` — Sub-agent: klasifikasi jenis request + project
-- `analyzer.md` — Sub-agent: analisis detail berdasarkan jenis request
-- `writer.md` — Sub-agent: generate brief document 9 section
-- `tracker.md` — Sub-agent: simpan ke history + tracking status
+- `pm-brief-agent.md` — Orchestrator
+- `classifier.md` — Klasifikasi jenis request + project
+- `analyzer.md` — Analisis detail berdasarkan jenis request
+- `writer.md` — Generate brief document 9 section
+- `tracker.md` — Brief history + status tracking
 
 **Configuration:**
-- `config/paths.json` — Konfigurasi lokasi file Excel
-- `config/projects.json` — Daftar project + keywords untuk klasifikasi
+- `config/paths.json` — Lokasi file Excel
+- `config/projects.json` — Daftar project + keywords
 
 **Database:**
-- `data/brief-history.json` — Database brief dalam format JSON
+- `data/brief-history.json` — Database brief (JSON)
 
 **Documentation:**
-- `README.md` — Panduan penggunaan
-- `CLAUDE.md` — Dokumentasi internal untuk Claude Code
-- `CHANGELOG.md` — Riwayat perubahan
+- `README.md`, `CLAUDE.md`, `CHANGELOG.md`
 
 **Sample Data:**
-- `docs/WhatsApp_Error_Report_SAMPLE.xlsx` — Sample format error report
-- `docs/WhatsApp_Technical_ActionPlan_SAMPLE.xlsx` — Sample action plan
-
-**Command:**
-- `.claude/commands/pm-brief.md` — Command trigger untuk Claude Code
-
-### Features:
-
-1. **Multi-Agent System** — Orchestrator + 4 sub-agents bekerja sama
-2. **Klasifikasi Otomatis** — Deteksi jenis request + project dari input PM
-3. **Error History** — Cek brief history untuk cegah error berulang
-4. **9-Section Brief Format** — Ringkasan, requirements, acceptance criteria, dll
-5. **Dampak ke User** — Kolom khusus untuk汇报 stakeholder
-6. **Translate Bahasa Indonesia** — Root cause/solusi dari Excel diterjemahkan
-7. **Configurable Project** — Tambah project baru via `config/projects.json`
-8. **Configurable Path** — Ubah lokasi Excel via `config/paths.json`
-9. **Brief History** — Semua brief disimpan untuk referensi future
-10. **Checkpoints** — 3 titik konfirmasi PM sebelum brief final
-
-### Jenis Request yang Didukung:
-
-- **Error / Bug** — Kategori otomatis dari keywords
-- **Fitur Baru** — Identifikasi scope + complexity
-- **Pengembangan Fitur** — Delta analysis + impact
-
-### Project yang Tersedia:
-
-- DMSEDU
-- LSP AI
-- LSP DMI
-
-(Customizable via `config/projects.json`)
-
----
-
-## [0.1.0] — 2026-04-07
-
-### Added (Initial Version)
-
-- Single-file agent (CLAUDE.md di Downloads)
-- Format brief 8 section
-- Baca Excel error database
-- Trigger command `/pm-brief`
-
-### Notes
-
-Versi awal — single agent tanpa sub-agents.
+- `docs/WhatsApp_Error_Report_SAMPLE.xlsx`
+- `docs/WhatsApp_Technical_ActionPlan_SAMPLE.xlsx`
