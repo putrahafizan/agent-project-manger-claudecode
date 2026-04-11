@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "description": "Data programmer tim PM. Rotation decided by PM at time of brief. Config ini baseline/rekomendasi saja.",
+  "programmers": [
+    {
+      "id": "cherry",
+      "name": "Cherry",
+      "specialty": ["devops", "fullstack"],
+      "projects": ["DMS marketing", "LSP"]
+    },
+    {
+      "id": "jiwan",
+      "name": "Jiwan",
+      "specialty": ["fullstack"],
+      "projects": ["DMS finance", "DMS marketing"]
+    },
+    {
+      "id": "thomson",
+      "name": "Thomson",
+      "specialty": ["fullstack", "FE"],
+      "projects": ["AIRA", "LSP"]
+    },
+    {
+      "id": "mhartin",
+      "name": "Mhartin",
+      "specialty": ["BE", "fullstack"],
+      "projects": ["AIRA", "DMS event"]
+    },
+    {
+      "id": "dhiyah",
+      "name": "Dhiyah",
+      "specialty": ["QA"],
+      "projects": ["*"]
+    }
+  ],
+  "assignment_rules": {
+    "QA": "Dhiyah — QA untuk semua project",
+    "BE": "Mhartin — BE specialist, fallback: Thomson",
+    "FE": "Thomson — FE specialist",
+    "FULLSTACK": "Cherry, Jiwan — fullstack generalist",
+    "DEVOPS": "Cherry — devops specialist",
+    "NOTE": "Rotation fluida. PM decide final. History tracking dipakai untuk rekomendasi."
+  }
+}
